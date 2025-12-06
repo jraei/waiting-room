@@ -1,14 +1,18 @@
-import { useState, useCallback } from 'react';
-import { Head } from '@inertiajs/react';
+import { useState, useCallback, useEffect } from 'react';
+import { Head, usePage } from '@inertiajs/react';
 import { MatrixHeader } from '@/components/matrix/MatrixHeader';
 import { BrainDumpInput } from '@/components/matrix/BrainDumpInput';
 import { EisenhowerMatrix } from '@/components/matrix/EisenhowerMatrix';
 import { useTasks } from '@/hooks/use-tasks';
-import { Quadrant } from '@/types/task';
+import { Task, Quadrant } from '@/types/task';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/hooks/use-toast';
 
-export default function Dashboard() {
+interface DashboardProps {
+    tasks: Task[];
+}
+
+export default function Dashboard({ tasks: initialTasks = [] }: DashboardProps) {
     const { toast } = useToast();
     const {
         tasks,
@@ -18,7 +22,7 @@ export default function Dashboard() {
         completeTask,
         deleteTask,
         getTasksByQuadrant,
-    } = useTasks([]);
+    } = useTasks(initialTasks);
 
     const handleSubmit = useCallback(async (text: string) => {
         const task = await addTask(text);
