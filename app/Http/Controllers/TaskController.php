@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use App\Services\GrokService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Http\Request;
+use App\Services\GrokService;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -20,8 +21,7 @@ class TaskController extends Controller
      */
     public function index(): Response
     {
-        $tasks = Auth::user()
-            ->tasks()
+        $tasks = Auth::user()->tasks()
             ->orderBy('created_at', 'desc')
             ->get()
             ->map(fn($task) => $this->formatTask($task));
@@ -35,6 +35,7 @@ class TaskController extends Controller
      * Store a new task with AI classification.
      */
     public function store(Request $request)
+
     {
         $validated = $request->validate([
             'title' => 'required|string|max:500',
@@ -62,11 +63,14 @@ class TaskController extends Controller
     }
 
     /**
-     * Update task quadrant (for drag & drop).
+     * Update task quadrant (drag & drop).
      */
     public function updateQuadrant(Request $request, Task $task)
     {
-        $this->authorize('update', $task);
+        // Security Check: Pastikan task milik user yang sedang login
+        if ($task->user_id !== Auth::id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
 
         $validated = $request->validate([
             'quadrant' => 'required|in:do,decide,delegate,delete',
@@ -76,13 +80,11 @@ class TaskController extends Controller
             'quadrant' => $validated['quadrant'],
         ]);
 
-        if ($request->wantsJson()) {
-            return response()->json([
-                'task' => $this->formatTask($task),
-            ]);
-        }
-
-        return back();
+        return response()->json([
+            'success' => true,
+            'message' => 'Task moved successfully.',
+            'task' => $task
+        ]);
     }
 
     /**
@@ -90,25 +92,50 @@ class TaskController extends Controller
      */
     public function complete(Task $task)
     {
-        $this->authorize('update', $task);
+        // Security Check
+        if ($task->user_id !== Auth::id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
 
+        // Toggle status (opsional: bisa dibuat toggle atau strict complete)
         $task->update([
-            'is_completed' => true,
+            'is_completed' => true, // atau !$task->is_completed jika ingin toggle
         ]);
 
-        return back();
+        return response()->json([
+            'success' => true,
+            'message' => 'Task marked as completed.',
+            'task' => $task
+        ]);
     }
 
     /**
-     * Delete a task.
+     * Remove the specified task from storage.
+     * INI YANG MENYEABABKAN ERROR 500 JIKA TIDAK ADA
      */
     public function destroy(Task $task)
     {
-        $this->authorize('delete', $task);
+        // 1. Security Check: Cegah user menghapus task orang lain
+        if ($task->user_id !== Auth::id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
 
-        $task->delete();
+        try {
+            // 2. Hapus Task
+            $task->delete();
 
-        return back();
+            // 3. Return JSON sukses
+            return response()->json([
+                'success' => true,
+                'message' => 'Task deleted successfully.'
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Delete Task Error: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to delete task.'
+            ], 500);
+        }
     }
 
     /**

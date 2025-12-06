@@ -132,7 +132,7 @@ export function useTasks(initialTasks: Task[] = []) {
 
         // Send request silently
         axios.delete(`/tasks/${taskId}`).catch((error) => {
-            console.error('Failed to delete task:', error);
+            console.log('Failed to delete task:', error);
 
             // Revert on failure
             if (deletedTask) {

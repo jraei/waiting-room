@@ -5,17 +5,17 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 
-// Route::get('/home', function () {
-//     return Inertia::render('welcome', [
-//         'canRegister' => Features::enabled(Features::registration()),
-//     ]);
-// })->name('home');
+Route::get('/', function () {
+    return Inertia::render('welcome', [
+        'canRegister' => Features::enabled(Features::registration()),
+    ]);
+})->name('home');
 
 // Dashboard with tasks
-Route::get('/', [TaskController::class, 'index'])->name('dashboard');
 
 // Task API routes
-Route::prefix('tasks')->name('tasks.')->group(function () {
+Route::middleware('auth')->prefix('tasks')->name('tasks.')->group(function () {
+    Route::get('/', [TaskController::class, 'index'])->name('index');
     Route::post('/', [TaskController::class, 'store'])->name('store');
     Route::patch('/{task}/quadrant', [TaskController::class, 'updateQuadrant'])->name('update-quadrant');
     Route::post('/{task}/complete', [TaskController::class, 'complete'])->name('complete');
