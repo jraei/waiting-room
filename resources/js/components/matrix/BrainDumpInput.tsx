@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
-import { Brain, Sparkles, Send, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Brain, Loader2, Send, Sparkles } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 interface BrainDumpInputProps {
     onSubmit: (text: string) => Promise<void>;
@@ -8,15 +8,18 @@ interface BrainDumpInputProps {
 }
 
 const placeholderExamples = [
-    "Pay the electricity bill before 5 PM today...",
-    "Schedule a meeting with the design team...",
-    "Learn to play guitar someday...",
-    "Call mom - she called twice...",
-    "Review quarterly report before Friday...",
-    "Clean up the garage this weekend...",
+    'Pay the electricity bill before 5 PM today...',
+    'Schedule a meeting with the design team...',
+    'Learn to play guitar someday...',
+    'Call mom - she called twice...',
+    'Review quarterly report before Friday...',
+    'Clean up the garage this weekend...',
 ];
 
-export function BrainDumpInput({ onSubmit, isClassifying }: BrainDumpInputProps) {
+export function BrainDumpInput({
+    onSubmit,
+    isClassifying,
+}: BrainDumpInputProps) {
     const [input, setInput] = useState('');
     const [placeholderIndex, setPlaceholderIndex] = useState(0);
     const [isFocused, setIsFocused] = useState(false);
@@ -24,7 +27,9 @@ export function BrainDumpInput({ onSubmit, isClassifying }: BrainDumpInputProps)
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setPlaceholderIndex(prev => (prev + 1) % placeholderExamples.length);
+            setPlaceholderIndex(
+                (prev) => (prev + 1) % placeholderExamples.length,
+            );
         }, 3000);
         return () => clearInterval(interval);
     }, []);
@@ -55,33 +60,37 @@ export function BrainDumpInput({ onSubmit, isClassifying }: BrainDumpInputProps)
     };
 
     return (
-        <div className="relative w-full max-w-3xl mx-auto">
+        <div className="relative mx-auto w-full max-w-3xl">
             {/* Glowing background effect */}
-            <div 
+            <div
                 className={`absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary via-accent to-neon-magenta opacity-20 blur-xl transition-opacity duration-500 ${
                     isFocused ? 'opacity-40' : 'opacity-20'
                 }`}
             />
-            
+
             {/* Main container */}
-            <div 
-                className={`relative glass dark:glass rounded-2xl p-1 transition-all duration-300 ${
+            <div
+                className={`glass dark:glass relative rounded-2xl p-1 transition-all duration-300 ${
                     isFocused ? 'glow-cyan' : ''
                 }`}
             >
                 {/* Header */}
                 <div className="flex items-center gap-3 px-4 pt-4 pb-2">
                     <div className="flex items-center gap-2">
-                        <div className="p-2 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20">
-                            <Brain className="w-5 h-5 text-primary" />
+                        <div className="rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 p-2">
+                            <Brain className="h-5 w-5 text-primary" />
                         </div>
                         <div>
-                            <h2 className="font-semibold text-sm gradient-text">Smart Brain Dump</h2>
-                            <p className="text-xs text-muted-foreground">Let AI organize your thoughts</p>
+                            <h2 className="gradient-text text-sm font-semibold">
+                                Smart Brain Dump
+                            </h2>
+                            <p className="text-xs text-muted-foreground">
+                                Let AI organize your thoughts
+                            </p>
                         </div>
                     </div>
                     <div className="ml-auto flex items-center gap-1 text-xs text-muted-foreground">
-                        <Sparkles className="w-3 h-3 text-accent" />
+                        <Sparkles className="h-3 w-3 text-accent" />
                         <span>AI-Powered</span>
                     </div>
                 </div>
@@ -99,39 +108,56 @@ export function BrainDumpInput({ onSubmit, isClassifying }: BrainDumpInputProps)
                             placeholder={placeholderExamples[placeholderIndex]}
                             disabled={isClassifying}
                             rows={1}
-                            className="w-full min-h-[60px] max-h-[200px] px-4 py-3 pr-14 bg-background/50 dark:bg-background/30 rounded-xl border border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none resize-none text-foreground placeholder:text-muted-foreground/50 transition-all duration-300"
+                            className="max-h-[200px] min-h-[60px] w-full resize-none rounded-xl border border-border/50 bg-background/50 px-4 py-3 pr-14 text-foreground transition-all duration-300 outline-none placeholder:text-muted-foreground/50 focus:border-primary focus:ring-2 focus:ring-primary/20 dark:bg-background/30"
                         />
-                        
+
                         {/* Submit button */}
                         <Button
                             onClick={handleSubmit}
                             disabled={!input.trim() || isClassifying}
                             size="icon"
-                            className="absolute right-2 bottom-2 h-10 w-10 rounded-lg bg-gradient-to-br from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-lg disabled:opacity-50 transition-all duration-300"
+                            className="absolute right-2 bottom-2 h-10 w-10 rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-lg transition-all duration-300 hover:from-primary/90 hover:to-accent/90 disabled:opacity-50"
                         >
                             {isClassifying ? (
-                                <Loader2 className="w-5 h-5 animate-spin" />
+                                <Loader2 className="h-5 w-5 animate-spin" />
                             ) : (
-                                <Send className="w-5 h-5" />
+                                <Send className="h-5 w-5" />
                             )}
                         </Button>
                     </div>
 
                     {/* Classification indicator */}
                     {isClassifying && (
-                        <div className="flex items-center gap-2 mt-3 text-sm text-muted-foreground">
+                        <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
                             <div className="flex gap-1">
-                                <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
-                                <span className="w-2 h-2 rounded-full bg-accent animate-bounce" style={{ animationDelay: '150ms' }} />
-                                <span className="w-2 h-2 rounded-full bg-neon-magenta animate-bounce" style={{ animationDelay: '300ms' }} />
+                                <span
+                                    className="h-2 w-2 animate-bounce rounded-full bg-primary"
+                                    style={{ animationDelay: '0ms' }}
+                                />
+                                <span
+                                    className="h-2 w-2 animate-bounce rounded-full bg-accent"
+                                    style={{ animationDelay: '150ms' }}
+                                />
+                                <span
+                                    className="h-2 w-2 animate-bounce rounded-full bg-neon-magenta"
+                                    style={{ animationDelay: '300ms' }}
+                                />
                             </div>
                             <span>AI is analyzing your task...</span>
                         </div>
                     )}
 
                     {/* Hint */}
-                    <p className="mt-2 text-xs text-muted-foreground/70 text-center">
-                        Press <kbd className="px-1.5 py-0.5 rounded bg-muted text-muted-foreground font-mono">Enter</kbd> to submit • <kbd className="px-1.5 py-0.5 rounded bg-muted text-muted-foreground font-mono">Shift+Enter</kbd> for new line
+                    <p className="mt-2 text-center text-xs text-muted-foreground/70">
+                        Press{' '}
+                        <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono text-muted-foreground">
+                            Enter
+                        </kbd>{' '}
+                        to submit •{' '}
+                        <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono text-muted-foreground">
+                            Shift+Enter
+                        </kbd>{' '}
+                        for new line
                     </p>
                 </div>
             </div>
