@@ -1,7 +1,7 @@
+import { toast } from '@/hooks/use-toast';
 import { Quadrant, Task } from '@/types/task';
 import axios from 'axios';
 import { useCallback, useState } from 'react';
-import { toast } from '@/hooks/use-toast';
 
 export function useTasks(initialTasks: Task[] = []) {
     const [tasks, setTasks] = useState<Task[]>(initialTasks);
@@ -18,7 +18,7 @@ export function useTasks(initialTasks: Task[] = []) {
             const newTask: Task = response.data.task;
 
             setTasks((prev) => [...prev, newTask]);
-            
+
             toast({
                 title: 'Task classified',
                 description: `Added to "${newTask.quadrant.toUpperCase()}" quadrant`,
@@ -42,7 +42,7 @@ export function useTasks(initialTasks: Task[] = []) {
         (taskId: number, newQuadrant: Quadrant) => {
             // Optimistic update
             let previousTask: Task | undefined;
-            
+
             setTasks((prev) =>
                 prev.map((task) => {
                     if (task.id === taskId) {
@@ -62,7 +62,7 @@ export function useTasks(initialTasks: Task[] = []) {
                 .patch(`/tasks/${taskId}/quadrant`, { quadrant: newQuadrant })
                 .catch((error) => {
                     console.error('Failed to update quadrant:', error);
-                    
+
                     // Revert on failure
                     if (previousTask) {
                         setTasks((prev) =>
@@ -71,7 +71,7 @@ export function useTasks(initialTasks: Task[] = []) {
                             ),
                         );
                     }
-                    
+
                     toast({
                         title: 'Error',
                         description: 'Failed to move task. Reverting change.',
@@ -85,7 +85,7 @@ export function useTasks(initialTasks: Task[] = []) {
     const completeTask = useCallback((taskId: number) => {
         // Optimistic update
         let previousTask: Task | undefined;
-        
+
         setTasks((prev) =>
             prev.map((task) => {
                 if (task.id === taskId) {
@@ -103,7 +103,7 @@ export function useTasks(initialTasks: Task[] = []) {
         // Send request silently
         axios.post(`/tasks/${taskId}/complete`).catch((error) => {
             console.error('Failed to complete task:', error);
-            
+
             // Revert on failure
             if (previousTask) {
                 setTasks((prev) =>
@@ -112,7 +112,7 @@ export function useTasks(initialTasks: Task[] = []) {
                     ),
                 );
             }
-            
+
             toast({
                 title: 'Error',
                 description: 'Failed to complete task. Reverting change.',
@@ -124,7 +124,7 @@ export function useTasks(initialTasks: Task[] = []) {
     const deleteTask = useCallback((taskId: number) => {
         // Optimistic update
         let deletedTask: Task | undefined;
-        
+
         setTasks((prev) => {
             deletedTask = prev.find((task) => task.id === taskId);
             return prev.filter((task) => task.id !== taskId);
@@ -133,12 +133,12 @@ export function useTasks(initialTasks: Task[] = []) {
         // Send request silently
         axios.delete(`/tasks/${taskId}`).catch((error) => {
             console.error('Failed to delete task:', error);
-            
+
             // Revert on failure
             if (deletedTask) {
                 setTasks((prev) => [...prev, deletedTask!]);
             }
-            
+
             toast({
                 title: 'Error',
                 description: 'Failed to delete task. Reverting change.',
