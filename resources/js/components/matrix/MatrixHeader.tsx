@@ -1,87 +1,107 @@
-import { LayoutGrid, Sparkles, TrendingUp, CheckCircle2 } from 'lucide-react';
 import { Task } from '@/types/task';
+import { CheckCircle2, LayoutGrid, Sparkles, TrendingUp } from 'lucide-react';
 
 interface MatrixHeaderProps {
     tasks: Task[];
 }
 
 export function MatrixHeader({ tasks }: MatrixHeaderProps) {
-    const pendingTasks = tasks.filter(t => t.status === 'pending');
-    const completedTasks = tasks.filter(t => t.status === 'completed');
-    const criticalTasks = pendingTasks.filter(t => t.quadrant === 'do' && t.urgency_score >= 80);
-    const avgUrgency = pendingTasks.length > 0 
-        ? Math.round(pendingTasks.reduce((acc, t) => acc + t.urgency_score, 0) / pendingTasks.length)
-        : 0;
+    const pendingTasks = tasks.filter((t) => t.status === 'pending');
+    const completedTasks = tasks.filter((t) => t.status === 'completed');
+    const criticalTasks = pendingTasks.filter(
+        (t) => t.quadrant === 'do' && t.urgency_score >= 80,
+    );
+    const avgUrgency =
+        pendingTasks.length > 0
+            ? Math.round(
+                  pendingTasks.reduce((acc, t) => acc + t.urgency_score, 0) /
+                      pendingTasks.length,
+              )
+            : 0;
 
     return (
         <div className="relative w-full">
             {/* Background glow */}
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-primary/5 via-accent/5 to-neon-magenta/5 blur-3xl" />
-            
-            <div className="relative glass dark:glass rounded-2xl p-6">
-                <div className="flex flex-col md:flex-row md:items-center gap-6">
+
+            <div className="glass dark:glass relative rounded-2xl p-6">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center">
                     {/* Logo & Title */}
                     <div className="flex items-center gap-4">
                         <div className="relative">
-                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-accent blur-lg opacity-50" />
-                            <div className="relative p-3 rounded-2xl bg-gradient-to-br from-primary to-accent">
-                                <LayoutGrid className="w-8 h-8 text-primary-foreground" />
+                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-accent opacity-50 blur-lg" />
+                            <div className="relative rounded-2xl bg-gradient-to-br from-primary to-accent p-3">
+                                <LayoutGrid className="h-8 w-8 text-primary-foreground" />
                             </div>
                         </div>
                         <div>
-                            <h1 className="text-2xl md:text-3xl font-bold tracking-tight gradient-text">
+                            <h1 className="gradient-text text-2xl font-bold tracking-tight md:text-3xl">
                                 Eisenhower Matrix
                             </h1>
-                            <p className="text-sm text-muted-foreground flex items-center gap-1">
-                                <Sparkles className="w-3 h-3 text-accent" />
-                                AI-Powered Task Intelligence
+                            <p className="flex items-center gap-1 text-sm text-muted-foreground">
+                                <Sparkles className="h-3 w-3 text-accent" />
+                                Smart Task Classifier
                             </p>
                         </div>
                     </div>
 
                     {/* Stats */}
-                    <div className="flex-1 flex flex-wrap gap-3 md:justify-end">
+                    <div className="flex flex-1 flex-wrap gap-3 md:justify-end">
                         {/* Critical Tasks */}
                         {criticalTasks.length > 0 && (
-                            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-quadrant-do/10 border border-quadrant-do/30 animate-pulse-critical">
-                                <div className="w-2 h-2 rounded-full bg-quadrant-do animate-ping" />
+                            <div className="animate-pulse-critical flex items-center gap-2 rounded-xl border border-quadrant-do/30 bg-quadrant-do/10 px-4 py-2">
+                                <div className="h-2 w-2 animate-ping rounded-full bg-quadrant-do" />
                                 <span className="text-sm font-bold text-quadrant-do">
-                                    {criticalTasks.length} Critical
+                                    {criticalTasks.length} Urgent
                                 </span>
                             </div>
                         )}
 
                         {/* Pending */}
-                        <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted/50 border border-border/50">
-                            <TrendingUp className="w-4 h-4 text-primary" />
+                        <div className="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/50 px-4 py-2">
+                            <TrendingUp className="h-4 w-4 text-primary" />
                             <span className="text-sm">
-                                <span className="font-bold text-foreground">{pendingTasks.length}</span>
-                                <span className="text-muted-foreground ml-1">Pending</span>
+                                <span className="font-bold text-foreground">
+                                    {pendingTasks.length}
+                                </span>
+                                <span className="ml-1 text-muted-foreground">
+                                    Pending
+                                </span>
                             </span>
                         </div>
 
                         {/* Completed */}
-                        <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted/50 border border-border/50">
-                            <CheckCircle2 className="w-4 h-4 text-green-500" />
+                        <div className="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/50 px-4 py-2">
+                            <CheckCircle2 className="h-4 w-4 text-green-500" />
                             <span className="text-sm">
-                                <span className="font-bold text-foreground">{completedTasks.length}</span>
-                                <span className="text-muted-foreground ml-1">Done</span>
+                                <span className="font-bold text-foreground">
+                                    {completedTasks.length}
+                                </span>
+                                <span className="ml-1 text-muted-foreground">
+                                    Done
+                                </span>
                             </span>
                         </div>
 
                         {/* Avg Urgency */}
                         {pendingTasks.length > 0 && (
-                            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted/50 border border-border/50">
-                                <div 
-                                    className={`w-3 h-3 rounded-full ${
-                                        avgUrgency >= 70 ? 'bg-quadrant-do' : 
-                                        avgUrgency >= 40 ? 'bg-quadrant-decide' : 
-                                        'bg-quadrant-delegate'
+                            <div className="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/50 px-4 py-2">
+                                <div
+                                    className={`h-3 w-3 rounded-full ${
+                                        avgUrgency >= 70
+                                            ? 'bg-quadrant-do'
+                                            : avgUrgency >= 40
+                                              ? 'bg-quadrant-decide'
+                                              : 'bg-quadrant-delegate'
                                     }`}
                                 />
                                 <span className="text-sm">
-                                    <span className="font-bold text-foreground">{avgUrgency}</span>
-                                    <span className="text-muted-foreground ml-1">Avg Urgency</span>
+                                    <span className="font-bold text-foreground">
+                                        {avgUrgency}
+                                    </span>
+                                    <span className="ml-1 text-muted-foreground">
+                                        Avg Urgency
+                                    </span>
                                 </span>
                             </div>
                         )}

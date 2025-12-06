@@ -82,10 +82,10 @@ export function BrainDumpInput({
                         </div>
                         <div>
                             <h2 className="gradient-text text-sm font-semibold">
-                                Smart Brain Dump
+                                User Prompt
                             </h2>
                             <p className="text-xs text-muted-foreground">
-                                Let AI organize your thoughts
+                                Enter your task here
                             </p>
                         </div>
                     </div>
