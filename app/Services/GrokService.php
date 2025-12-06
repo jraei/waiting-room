@@ -74,7 +74,6 @@ PROMPT;
             $result = $this->parseJsonResponse($content);
 
             return $this->validateAndNormalize($result);
-
         } catch (Exception $e) {
             Log::error('GrokService error', [
                 'message' => $e->getMessage(),

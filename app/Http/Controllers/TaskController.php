@@ -24,7 +24,7 @@ class TaskController extends Controller
             ->tasks()
             ->orderBy('created_at', 'desc')
             ->get()
-            ->map(fn ($task) => $this->formatTask($task));
+            ->map(fn($task) => $this->formatTask($task));
 
         return Inertia::render('dashboard', [
             'tasks' => $tasks,
