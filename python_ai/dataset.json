@@ -1,0 +1,306 @@
+[
+    {
+        "text": "Bayar tagihan listrik sebelum mati lampu nanti malam",
+        "label": "do"
+    },
+    {
+        "text": "Kirim tugas makalah sebelum deadline jam 12 malam",
+        "label": "do"
+    },
+    { "text": "Antar ibu ke rumah sakit sekarang, darurat", "label": "do" },
+    { "text": "Tambal ban motor yang bocor", "label": "do" },
+    { "text": "Rapat dadakan dengan dosen pembimbing", "label": "do" },
+    { "text": "Selesaikan revisi skripsi hari ini", "label": "do" },
+    { "text": "Beli obat sakit kepala di apotek", "label": "do" },
+    { "text": "Lapor pajak SPT tahunan hari terakhir", "label": "do" },
+    { "text": "Konfirmasi kehadiran seminar besok pagi", "label": "do" },
+    { "text": "Matikan kompor yang lupa dimatikan", "label": "do" },
+    { "text": "Balas chat penting dari klien marah", "label": "do" },
+    {
+        "text": "Print tiket kereta untuk keberangkatan nanti sore",
+        "label": "do"
+    },
+    { "text": "Bayar hutang teman yang sudah jatuh tempo", "label": "do" },
+    { "text": "Ambil laundry jas untuk dipakai besok", "label": "do" },
+    { "text": "Isi token listrik yang sudah bunyi", "label": "do" },
+    { "text": "Perbaiki genteng bocor mumpung tidak hujan", "label": "do" },
+    { "text": "Daftar ulang semesteran kampus", "label": "do" },
+    { "text": "Cari kunci motor yang hilang", "label": "do" },
+    { "text": "Angkat jemuran karena mendung gelap", "label": "do" },
+    { "text": "Hubungi damkar ada kebakaran dekat rumah", "label": "do" },
+
+    { "text": "Olahraga jogging sore ini", "label": "decide" },
+    { "text": "Rencanakan menu makan sehat untuk seminggu", "label": "decide" },
+    { "text": "Baca buku 'Filosofi Teras' bab 1", "label": "decide" },
+    { "text": "Belajar bahasa Inggris di Duolingo", "label": "decide" },
+    { "text": "Nabung untuk beli laptop baru", "label": "decide" },
+    { "text": "Cek kesehatan gigi rutin 6 bulan sekali", "label": "decide" },
+    { "text": "Susun rencana liburan akhir tahun ke Bali", "label": "decide" },
+    {
+        "text": "Bersih-bersih kamar tidur secara menyeluruh",
+        "label": "decide"
+    },
+    { "text": "Daftar member gym", "label": "decide" },
+    { "text": "Riset harga rumah untuk masa depan", "label": "decide" },
+    { "text": "Belajar coding Python dasar di YouTube", "label": "decide" },
+    { "text": "Telepon nenek di kampung untuk tanya kabar", "label": "decide" },
+    { "text": "Update CV dan LinkedIn profile", "label": "decide" },
+    { "text": "Mencatat pengeluaran bulanan", "label": "decide" },
+    { "text": "Service motor rutin ganti oli", "label": "decide" },
+    { "text": "Ikut webinar tentang investasi saham", "label": "decide" },
+    { "text": "Rapikan file-file di Google Drive", "label": "decide" },
+    { "text": "Menulis jurnal harian", "label": "decide" },
+    { "text": "Belajar masak resep nasi goreng baru", "label": "decide" },
+    { "text": "Meditasi sebelum tidur", "label": "decide" },
+
+    { "text": "Pesan GoFood untuk makan siang", "label": "delegate" },
+    { "text": "Panggil tukang service AC ke rumah", "label": "delegate" },
+    { "text": "Minta tolong adik cuci piring", "label": "delegate" },
+    {
+        "text": "Order GrabSend untuk kirim paket ke teman",
+        "label": "delegate"
+    },
+    { "text": "Laundry kiloan baju kotor", "label": "delegate" },
+    {
+        "text": "Titip beli kopi ke teman yang lagi di kantin",
+        "label": "delegate"
+    },
+    { "text": "Booking tiket bioskop via aplikasi", "label": "delegate" },
+    { "text": "Sewa jasa desain logo murah", "label": "delegate" },
+    {
+        "text": "Panggil GoClean untuk bersihkan kamar mandi",
+        "label": "delegate"
+    },
+    {
+        "text": "Minta tolong teman absenkan (jangan ditiru)",
+        "label": "delegate"
+    },
+    { "text": "Beli galon air minum lewat delivery", "label": "delegate" },
+    { "text": "Suruh kurir ambil dokumen di kantor", "label": "delegate" },
+    { "text": "Bayar iuran RT via transfer bank", "label": "delegate" },
+    { "text": "Minta rekomendasi film ke teman", "label": "delegate" },
+    { "text": "Titip salam buat orang tua teman", "label": "delegate" },
+    { "text": "Sewa jasa joki tugas (tidak disarankan)", "label": "delegate" },
+    { "text": "Pesan tiket pesawat lewat travel agent", "label": "delegate" },
+    { "text": "Gunakan jasa cuci sepatu", "label": "delegate" },
+    {
+        "text": "Minta bantuan customer service internet lemot",
+        "label": "delegate"
+    },
+    { "text": "Antar paket ke JNE drop point", "label": "delegate" },
+
+    { "text": "Scroll TikTok sampai lupa waktu", "label": "delete" },
+    { "text": "Maraton nonton drama korea seharian", "label": "delete" },
+    { "text": "Debat kusir di kolom komentar Instagram", "label": "delete" },
+    { "text": "Cek mantan pacar di sosmed", "label": "delete" },
+    { "text": "Main game Mobile Legends saat jam kerja", "label": "delete" },
+    { "text": "Baca gosip artis yang tidak penting", "label": "delete" },
+    { "text": "Melamun membayangkan jadi miliarder", "label": "delete" },
+    {
+        "text": "Cek harga barang online yang gak bakal dibeli",
+        "label": "delete"
+    },
+    { "text": "Khawatir berlebihan tentang masa depan", "label": "delete" },
+    { "text": "Nonton video kucing lucu 3 jam", "label": "delete" },
+    {
+        "text": "Ikut war tiket konser padahal gak punya uang",
+        "label": "delete"
+    },
+    { "text": "Spam stiker di grup WhatsApp", "label": "delete" },
+    { "text": "Mengeluh di status WhatsApp", "label": "delete" },
+    {
+        "text": "Menunggu balasan chat gebetan yang ghosting",
+        "label": "delete"
+    },
+    {
+        "text": "Download aplikasi yang tidak pernah dipakai",
+        "label": "delete"
+    },
+    { "text": "Hapus foto-foto tidak jelas di galeri", "label": "delete" },
+    { "text": "Tidur siang 5 jam sampai pusing", "label": "delete" },
+    { "text": "Belanja barang diskon yang tidak butuh", "label": "delete" },
+    {
+        "text": "Nonton ulang film yang sudah hafal ceritanya",
+        "label": "delete"
+    },
+    {
+        "text": "Mikirin kata-kata buat caption Instagram 2 jam",
+        "label": "delete"
+    },
+    { "text": "Submit tugas koding C++ sebelum jam 23.59", "label": "do" },
+    { "text": "Belajar buat kuis dadakan Kalkulus besok pagi", "label": "do" },
+    { "text": "Revisi laporan praktikum yang dicoret asdos", "label": "do" },
+    { "text": "Bayar UKT semesteran sebelum portal ditutup", "label": "do" },
+    { "text": "Presentasi project akhir mata kuliah AI", "label": "do" },
+    { "text": "Print makalah buat dikumpul jam 8 pagi", "label": "do" },
+    { "text": "Benerin bug error 500 di project Laravel dosen", "label": "do" },
+    { "text": "Isi KRS online rebutan kelas", "label": "do" },
+    { "text": "Tanda tangan KRS ke dosen wali sekarang", "label": "do" },
+    { "text": "Antar teman yang sakit ke klinik kampus", "label": "do" },
+    { "text": "Balikin buku perpustakaan yang sudah denda", "label": "do" },
+    { "text": "Rapat panitia acara kampus jam 4 sore", "label": "do" },
+    { "text": "Beli kuota internet buat zoom kelas online", "label": "do" },
+    { "text": "Cari kelompok buat tugas besar", "label": "do" },
+    { "text": "Upload video tugas ke YouTube sebelum deadline", "label": "do" },
+    {
+        "text": "Perbaiki laptop yang bluescreen mau dipakai ujian",
+        "label": "do"
+    },
+    { "text": "Bangun pagi buat kuliah jam 7", "label": "do" },
+    { "text": "Kerjakan soal pre-test praktikum", "label": "do" },
+    { "text": "Lapor ke dosen pengawas kalau portal error", "label": "do" },
+    { "text": "Ambil jas almamater di bagian kemahasiswaan", "label": "do" },
+    {
+        "text": "Bayar uang kas kelas yang sudah ditagih bendahara",
+        "label": "do"
+    },
+    { "text": "Foto copy bahan kuliah buat ujian open book", "label": "do" },
+    { "text": "Hubungi dosen karena telat masuk zoom", "label": "do" },
+    {
+        "text": "Submit proposal PKM (Program Kreativitas Mahasiswa)",
+        "label": "do"
+    },
+    {
+        "text": "Cari ruangan kelas pengganti yang pindah mendadak",
+        "label": "do"
+    },
+
+    { "text": "Belajar syntax Python dasar di W3Schools", "label": "decide" },
+    {
+        "text": "Baca buku 'Discrete Mathematics' bab himpunan",
+        "label": "decide"
+    },
+    { "text": "Riset topik buat judul skripsi nanti", "label": "decide" },
+    { "text": "Latihan soal algoritma di LeetCode", "label": "decide" },
+    { "text": "Olahraga lari keliling kampus sore hari", "label": "decide" },
+    {
+        "text": "Rapikan folder tugas di laptop biar gak berantakan",
+        "label": "decide"
+    },
+    { "text": "Ikut webinar tentang Data Science gratis", "label": "decide" },
+    {
+        "text": "Update LinkedIn profile biar dilirik recruiter",
+        "label": "decide"
+    },
+    {
+        "text": "Nabung uang saku buat beli keyboard mekanikal",
+        "label": "decide"
+    },
+    { "text": "Eksplor library React.js terbaru", "label": "decide" },
+    { "text": "Catat pengeluaran bulanan anak kos", "label": "decide" },
+    {
+        "text": "Bersihkan kamar kos yang sudah kayak kapal pecah",
+        "label": "decide"
+    },
+    {
+        "text": "Belajar bahasa Inggris buat persiapan TOEFL",
+        "label": "decide"
+    },
+    { "text": "Bikin jadwal belajar mingguan", "label": "decide" },
+    { "text": "Cari info beasiswa semester depan", "label": "decide" },
+    {
+        "text": "Review materi kuliah minggu lalu biar gak lupa",
+        "label": "decide"
+    },
+    {
+        "text": "Install ulang Windows biar laptop lebih ngebut",
+        "label": "decide"
+    },
+    { "text": "Backup data penting ke Google Drive", "label": "decide" },
+    { "text": "Eksplorasi text editor VS Code extension", "label": "decide" },
+    { "text": "Baca dokumentasi Laravel 12", "label": "decide" },
+    { "text": "Tidur siang biar fresh pas belajar malam", "label": "decide" },
+    { "text": "Cuci sepatu kuliah yang sudah dekil", "label": "decide" },
+    { "text": "Sortir email kampus yang numpuk", "label": "decide" },
+    { "text": "Bikin template CV ATS friendly", "label": "decide" },
+    { "text": "Cari tutorial deploy VPS di YouTube", "label": "decide" },
+
+    {
+        "text": "Titip absen ke teman (jangan sering-sering)",
+        "label": "delegate"
+    },
+    {
+        "text": "Nitip print tugas ke teman yang punya printer",
+        "label": "delegate"
+    },
+    { "text": "Pesan GoFood buat makan bareng teman kos", "label": "delegate" },
+    { "text": "Laundry baju seminggu di tempat kiloan", "label": "delegate" },
+    { "text": "Pinjam catatan teman buat difotocopy", "label": "delegate" },
+    {
+        "text": "Suruh adik tingkat beliin minum pas ospek",
+        "label": "delegate"
+    },
+    {
+        "text": "Bagi tugas kelompok bagian presentasi ke si A",
+        "label": "delegate"
+    },
+    {
+        "text": "Minta tolong teman installin software berat",
+        "label": "delegate"
+    },
+    { "text": "Booking lapangan futsal lewat admin", "label": "delegate" },
+    {
+        "text": "Minta info kisi-kisi ujian ke kakak tingkat",
+        "label": "delegate"
+    },
+    { "text": "Titip beli gorengan di kantin", "label": "delegate" },
+    { "text": "Sewa jasa jilid skripsi/laporan", "label": "delegate" },
+    {
+        "text": "Panggil tukang galon buat antar air ke kamar",
+        "label": "delegate"
+    },
+    { "text": "Nebeng teman ke kampus hemat ongkos", "label": "delegate" },
+    { "text": "Minta teman videoin pas lagi presentasi", "label": "delegate" },
+    {
+        "text": "Gunakan jasa translasi jurnal internasional",
+        "label": "delegate"
+    },
+    { "text": "Minta hotspot tethering ke teman", "label": "delegate" },
+    { "text": "Order ojek online buat ke stasiun", "label": "delegate" },
+    { "text": "Titip kumpul tugas ke ketua kelas", "label": "delegate" },
+    { "text": "Minta teman ajarin materi yang gak paham", "label": "delegate" },
+    { "text": "Suruh bot Telegram buat download video", "label": "delegate" },
+    { "text": "Pakai jasa desain slide presentasi", "label": "delegate" },
+    { "text": "Bayar parkir langganan ke satpam", "label": "delegate" },
+    { "text": "Minta tolong ibu kos terima paket", "label": "delegate" },
+    { "text": "Pinjam flashdisk teman buat copy data", "label": "delegate" },
+
+    { "text": "Mabar Mobile Legends sampai subuh", "label": "delete" },
+    {
+        "text": "Scroll TikTok pas lagi jam kuliah dosen killer",
+        "label": "delete"
+    },
+    { "text": "Nonton drakor maraton pas minggu tenang", "label": "delete" },
+    { "text": "Stalking instagram mantan pacar", "label": "delete" },
+    { "text": "Ghibah di kantin padahal ada tugas", "label": "delete" },
+    {
+        "text": "Check out barang shopee yang gak butuh-butuh amat",
+        "label": "delete"
+    },
+    { "text": "Tidur di kelas pas dosen ngejelasin", "label": "delete" },
+    { "text": "Nongkrong di warkop gak jelas tujuannya", "label": "delete" },
+    { "text": "Spam stiker gak jelas di grup angkatan", "label": "delete" },
+    { "text": "Overthinking mikirin masa depan jam 2 pagi", "label": "delete" },
+    { "text": "Nonton video kucing joget 1 jam", "label": "delete" },
+    { "text": "Debat politik di twitter/X", "label": "delete" },
+    { "text": "Buka tutup kulkas padahal gak lapar", "label": "delete" },
+    { "text": "Bolos kuliah titip absen doang", "label": "delete" },
+    { "text": "Main game cacing pas lagi zoom meeting", "label": "delete" },
+    { "text": "Baca thread horror di twitter sampai pagi", "label": "delete" },
+    { "text": "Ngeliatin wallpaper desktop doang", "label": "delete" },
+    {
+        "text": "Download film bajakan yang gak pernah ditonton",
+        "label": "delete"
+    },
+    { "text": "Komentar julid di postingan artis", "label": "delete" },
+    { "text": "Rebahan seharian di hari minggu produktif", "label": "delete" },
+    { "text": "Mikirin caption IG 3 jam gak jadi upload", "label": "delete" },
+    {
+        "text": "Refresh email nunggu balasan yang gak pasti",
+        "label": "delete"
+    },
+    { "text": "Cari masalah sama kating", "label": "delete" },
+    { "text": "Nonton tutorial makeup padahal cowok", "label": "delete" },
+    { "text": "Melamun pas lagi ngerjain koding", "label": "delete" },
+    { "text": "Mikirin konspirasi bumi datar", "label": "delete" }
+]

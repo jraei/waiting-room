@@ -6,14 +6,14 @@ use App\Models\Task;
 use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\Request;
-use App\Services\GrokService;
+use App\Services\PythonAIService;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
     public function __construct(
-        private GrokService $grokService
+        private PythonAIService $aiService // Ganti nama variable dan Type Hint
     ) {}
 
     /**
@@ -42,7 +42,7 @@ class TaskController extends Controller
         ]);
 
         // Get AI classification
-        $classification = $this->grokService->analyzeTask($validated['title']);
+        $classification = $this->aiService->analyzeTask($validated['title']);
 
         // Create the task
         $task = Auth::user()->tasks()->create([

@@ -41,4 +41,8 @@ return [
         'model' => env('GROK_MODEL', 'grok-3-latest'),
     ],
 
+    'python' => [
+        'path' => env('PYTHON_PATH', 'python'),
+    ],
+
 ];
